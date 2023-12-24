@@ -1,6 +1,4 @@
 
-
-
 namespace :test do
   desc "Reset the github test repo"
   task :reset do
@@ -24,8 +22,14 @@ task :package_client do
     js << File.read(File.dirname(__FILE__) + "/" + path.first)
   end
   total_js = js.join("\n\n")
+<<<<<<< HEAD
   File.open("lib/git.min.js", "w") {|f| f.puts total_js }
   puts "packaged lib/git.min.js"
+=======
+  FileUtils.mkdir_p("build")
+  File.open("build/git.min.js", "w") {|f| f.puts total_js }
+  puts "packaged build/git.min.js"
+>>>>>>> f70bb38 (Ensure build directory exists)
 end
 
 desc "Run the demo repo-viewer webapp off a local git http instance"
